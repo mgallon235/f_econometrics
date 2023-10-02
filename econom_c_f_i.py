@@ -213,6 +213,16 @@ education on wages)?'''
 conditional = df.groupby('educ')['lwklywge'].mean().reset_index()
 conditional.columns = ['educ', 'avg_ln_wage']
 
+# Plot the CEF with line plot
+plt.figure(figsize=(8, 6))
+plt.scatter(conditional['educ'], conditional['avg_ln_wage'], marker='o', color='b', alpha=0.7, s=70)
+plt.plot(conditional['educ'], conditional['avg_ln_wage'], linestyle='-', color='b', linewidth=2)
+plt.xlabel('educ')
+plt.ylabel('avg_ln_wage')
+plt.title('CEF Plot of Education years vs. ln(Average weekly average)')
+plt.show()
+
+
 #Calculate correlation
 conditional.corr()
 
